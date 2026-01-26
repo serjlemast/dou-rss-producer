@@ -35,8 +35,8 @@ public class RssFeedReader {
     String guid = entry.getUri();
     String title = entry.getTitle();
     String link = entry.getLink();
-    String description = String.valueOf(entry.getDescription());
-    Instant publishedAt = entry.getPublishedDate().toInstant(); // dangerous
+    String description = String.valueOf(entry.getDescription().getValue()); // NPE!!!
+    Instant publishedAt = entry.getPublishedDate().toInstant(); // dangerous NPE!!!
     return JobVacancy.builder()
         .guid(guid)
         .title(title)
