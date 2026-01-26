@@ -5,6 +5,7 @@ import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import org.serjlemast.dourssproducer.domain.JobVacancy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
@@ -16,11 +17,11 @@ import java.util.stream.Collectors;
 @Component
 public class RssFeedReader {
 
-  private static final String RSS_URL =
-      "https://jobs.dou.ua/vacancies/feeds/?exp=1-3&remote&category=QA";
+  @Value("${rss.url}")
+  private String url;
 
   public List<JobVacancy> read() {
-    try (XmlReader reader = new XmlReader(URI.create(RSS_URL).toURL())) {
+    try (XmlReader reader = new XmlReader(URI.create(url).toURL())) {
       SyndFeed feed = new SyndFeedInput().build(reader);
 
       return feed.getEntries().stream()

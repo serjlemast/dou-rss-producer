@@ -11,7 +11,7 @@ public class DailyJobCollector {
 
     private final CollectJobsUseCase useCase;
 
-    @Scheduled(cron = "0 0 */6 * * *")
+    @Scheduled(cron = "${cron.job}")
     public void run() {
         useCase.collect();
     }

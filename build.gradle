@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'org.serjlemast'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 description = 'dou-rss-producer'
 
 java {

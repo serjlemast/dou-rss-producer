@@ -8,7 +8,7 @@ spring:
 
 redis:
   stream:
-    name: acknowledged_stream
-    key: event
-    group: ack-auto-stream-group
-    max-length: 30
+    name: ${REDIS_STREAM_NAME:stream:dou.jobs}
+    key: ${REDIS_STREAM_KEY:job}
+  set:
+    name: ${REDIS_SET_NAME:processed:jobs}
