@@ -1,0 +1,14 @@
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      username: ${REDIS_USERNAME:}
+      password: ${REDIS_PASSWORD:}
+
+redis:
+  stream:
+    name: acknowledged_stream
+    key: event
+    group: ack-auto-stream-group
+    max-length: 30

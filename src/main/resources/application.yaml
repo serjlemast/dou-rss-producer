@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: dou-rss-producer
+
+  threads:
+    virtual:
+      enabled: true
+
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - classpath:redis.yaml
+
+server:
+  port: ${PORT:8080}
