@@ -38,6 +38,12 @@ public class RssFeedReader {
     String link = entry.getLink();
     String description = String.valueOf(entry.getDescription().getValue()); // NPE!!!
     Instant publishedAt = entry.getPublishedDate().toInstant(); // dangerous NPE!!!
-    return new Item(guid, title, link, description, publishedAt);
+    return Item.builder()
+            .guid(guid)
+            .title(title)
+            .link(link)
+            .content(description)
+            .date(publishedAt)
+            .build();
   }
 }
