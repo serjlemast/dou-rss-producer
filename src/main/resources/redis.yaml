@@ -8,7 +8,7 @@ spring:
 
 redis:
   stream:
-    name: ${REDIS_STREAM_NAME:stream:dou.jobs}
-    key: ${REDIS_STREAM_KEY:job}
+    name: ${REDIS_STREAM_NAME:stream-dou-items}
+    key: ${REDIS_STREAM_KEY:item}
   set:
-    name: ${REDIS_SET_NAME:processed:jobs}
+    name: ${REDIS_SET_NAME:processed-items}
