@@ -12,7 +12,7 @@ spring:
       - classpath:redis.yaml
 
 server:
-  port: ${PORT:8080}
+  port: ${PORT:8081}
 
 cron:
   job: ${CRON_JOB:0 0 */6 * * *}
